@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MeteoService} from '../meteo.service';
 
@@ -10,6 +10,9 @@ import {MeteoService} from '../meteo.service';
 export class MeteoFormComponent implements OnInit {
 
   angForm: FormGroup;
+
+  @Input() isWeatherReady;
+  weather;
 
   constructor(private fb: FormBuilder, private meteoService: MeteoService) {
     this.createForm();
@@ -23,10 +26,16 @@ export class MeteoFormComponent implements OnInit {
 
   getWeather() {
     const citta = this.angForm.controls.citta.value;
-    this.meteoService.getWeather(citta);
+    this.meteoService.getWeather(citta).subscribe(
+      data => {
+        this.weather = data;
+        this.isWeatherReady = true;
+      }
+    );
   }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -12,7 +12,7 @@ export class MeteoService {
   }
 
   getWeather(city: string) {
-    return this.http.get(this.uri + 'meteo/' + city).subscribe();
+    return this.http.get(this.uri + 'meteo/' + city);
   }
 
 }

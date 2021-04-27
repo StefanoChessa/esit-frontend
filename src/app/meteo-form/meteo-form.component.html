@@ -6,8 +6,36 @@
         <textarea class="form-control" formControlName="citta"></textarea>
       </div>
       <div class="form-group">
-        <button (click) = getWeather() type="submit" class="btn btn-primary">Richiedi meteo</button>
+        <button (click)=getWeather() type="submit" class="btn btn-primary">Richiedi meteo</button>
       </div>
     </form>
+  </div>
+  <div *ngIf="isWeatherReady" class="card-body">
+    <table>
+      <thead>
+      <tr>
+        <th>Citta</th>
+        <th>{{weather.citta}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Temperatura</td>
+        <td>{{weather.temperatura}} °C</td>
+      </tr>
+      <tr>
+        <td>Umidità</td>
+        <td>{{weather.umidita}} %</td>
+      </tr>
+      <tr>
+        <td>Vento</td>
+        <td>{{weather.vento}} m/s</td>
+      </tr>
+      <tr>
+        <td>Pressione</td>
+        <td>{{weather.pressione}} hPa</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
