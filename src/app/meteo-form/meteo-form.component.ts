@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MeteoService} from '../meteo.service';
 
 @Component({
   selector: 'app-meteo-form',
@@ -7,7 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeteoFormComponent implements OnInit {
 
-  constructor() { }
+  angForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private meteoService: MeteoService) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.angForm = this.fb.group({
+      citta: [''],
+    });
+  }
+
+  getWeather() {
+    const citta = this.angForm.controls.citta.value;
+    this.meteoService.getWeather(citta);
+  }
 
   ngOnInit(): void {
   }

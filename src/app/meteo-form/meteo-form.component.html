@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-body">
-    <form>
+    <form [formGroup]="angForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Nome Città</label>
-        <input type="text" class="form-control" />
+        <textarea class="form-control" formControlName="citta"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Richiedi meteo</button>
+        <button (click) = getWeather() type="submit" class="btn btn-primary">Richiedi meteo</button>
       </div>
     </form>
   </div>
