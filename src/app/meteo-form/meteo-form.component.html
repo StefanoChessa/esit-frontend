@@ -1,12 +1,15 @@
 <div class="card">
   <div class="card-body">
+    <h2>Esit Weather Query</h2>
+  </div>
+  <div class="card-body">
     <form [formGroup]="angForm" novalidate>
       <div class="form-group">
-        <label class="col-md-4">Nome Città</label>
+        <label class="col-md-4">City name:</label>
         <textarea class="form-control" formControlName="citta"></textarea>
       </div>
       <div class="form-group">
-        <button (click)=getWeather() type="submit" class="btn btn-primary">Richiedi meteo</button>
+        <button (click)=getWeather() type="submit" class="btn btn-primary">Get current weather</button>
       </div>
     </form>
   </div>
@@ -14,25 +17,25 @@
     <table>
       <thead>
       <tr>
-        <th>Citta</th>
+        <th>City of</th>
         <th>{{weather.citta}}</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td>Temperatura</td>
+        <td>Temperature</td>
         <td>{{weather.temperatura}} °C</td>
       </tr>
       <tr>
-        <td>Umidità</td>
+        <td>Umidity</td>
         <td>{{weather.umidita}} %</td>
       </tr>
       <tr>
-        <td>Vento</td>
+        <td>Wind</td>
         <td>{{weather.vento}} m/s</td>
       </tr>
       <tr>
-        <td>Pressione</td>
+        <td>Pressure</td>
         <td>{{weather.pressione}} hPa</td>
       </tr>
       </tbody>
