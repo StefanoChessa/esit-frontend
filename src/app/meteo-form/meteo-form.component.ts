@@ -20,13 +20,13 @@ export class MeteoFormComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-      citta: [''],
+      location: [''],
     });
   }
 
   getWeather() {
-    const citta = this.angForm.controls.citta.value;
-    this.meteoService.getWeather(citta).subscribe(
+    const location = this.angForm.controls.location.value;
+    this.meteoService.getWeather(location).subscribe(
       data => {
         this.weather = data;
         this.isWeatherReady = true;
